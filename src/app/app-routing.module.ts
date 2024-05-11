@@ -5,7 +5,14 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: 'client', loadChildren: () => import('./ui/client/client.module').then(m => m.ClientModule) },
-  { path: 'console', loadChildren: () => import('./ui/console/console.module').then(m => m.ConsoleModule), canActivate: [AuthGuard] }
+  {
+    path: 'console',
+    loadChildren: () => import('./ui/console/console.module').then(m => m.ConsoleModule),
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ADMIN']
+    }
+  }
 ];
 
 @NgModule({
