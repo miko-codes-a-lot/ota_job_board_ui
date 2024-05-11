@@ -7,6 +7,7 @@ import { NotFoundComponent } from './ui/error/not-found/not-found.component';
 import { UnauthorizedComponent } from './ui/error/unauthorized/unauthorized.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'client', pathMatch: 'full' },
   { path: 'client', loadChildren: () => import('./ui/client/client.module').then(m => m.ClientModule) },
   {
     path: 'console',
